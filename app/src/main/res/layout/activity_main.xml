@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="work.worktest.MainActivity">
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/abl_main"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp"
+            >
+            <!--CollapsingToolbarLayout 可以理解成
+            容器 放着 需要 缩进 当Toolbar拉上去 背景要显示的内容 -->
+            <!--我们可以通过给Appbar下的子View添加-->
+            <!--app:layout_scrollFlags来设置各子View执行的动作.-->
+            <!--scrollFlags可以设置的动作如下:
+             scroll: 值设为scroll的View会跟随滚动事件一起发生移动。
+             就是当指定的ScrollView发生滚动时，该View也跟随一起滚动，
+             就好像这个View也是属于这个ScrollView一样
+
+              enterAlways: 值设为enterAlways的View,当任何时候ScrollView往下滚动时，
+              该View会直接往下滚动。而不用考虑ScrollView是否在滚动到最顶部还是哪里.
+                （下滑的时候 Toolbar就会出现 ）
+
+                exitUntilCollapsed：值设为exitUntilCollapsed的View，当这个View要往上逐渐“消逝”时
+                ，会一直往上滑动，直到剩下的的高度达到它的最小高度后，再响应ScrollView的内部滑动事件。
+                （快滑到顶上时候 慢慢出现 ，toolbar不会消失  ）
+
+                enterAlwaysCollapsed：是enterAlways的附加选项，一般跟enterAlways一起使用，
+                它是指，View在往下“出现”的时候，首先是enterAlways效果，当View的高度达到最小高度时，
+                View就暂时不去往下滚动，直到ScrollView滑动到顶部不再滑动时，
+                View再继续往下滑动，直到滑到View的顶部结束
+
+
+
+
+            -->
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <!--app:contentScrim="?attr/colorPrimary"-->
+
+
+                <!--android:fitsSystemWindows="true"-->
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/appbar_layout_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="AppbarLayout"
+
+                app:layout_scrollFlags="scroll|snap|enterAlways"
+                app:titleTextColor="@color/white"
+                app:layout_collapseMode="parallax"
+                />
+
+            <com.youth.banner.Banner
+                app:indicator_drawable_selected="@drawable/bai"
+                app:indicator_drawable_unselected="@drawable/hei"
+                app:indicator_width="20dp"
+                app:indicator_height="5dp"
+                app:banner_layout="@layout/banner"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!--NestedScrollView 可以理解为 随着toolbar滑动的view
+        AppBarLayout 相当于  Toolbar
+        -->
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <!--上面 面这行代码是核心-->
+
+            <!--<TextView-->
+                <!--android:text="@string/text"-->
+                <!--android:id="@+id/rv_recyclerView"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--/>-->
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/rv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+<!--<LinearLayout-->
+    <!--android:background="#dfa"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="200dp"></LinearLayout>-->
+
+
+
+
+</LinearLayout>

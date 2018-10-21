@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="carowner.pingan.com.myapplication.MainActivity">
+
+   <EditText
+       android:id="@+id/et_text"
+       android:hint="输入加密/解密的字符串 "
+       android:layout_width="200dp"
+       android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/bt_jiami"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加密"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="46dp"/>
+
+    <Button
+        android:id="@+id/bt_jiemi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解密"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="46dp"/>
+
+    <TextView
+        android:id="@+id/tv_resut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 1111111111111"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="279dp"/>
+
+
+</LinearLayout>
